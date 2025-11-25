@@ -64,5 +64,5 @@ jobs:
           # cp ../IPV4.m3u ./
           git add IPV4.txt 
           # add to above line IPV6.txt IPV4.m3u
-          git commit -m "Sync from GitHub" || exit 0
+          git commit -m "Sync from GitHub" --allow-empty
           git push origin master
