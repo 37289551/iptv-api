@@ -16,26 +16,24 @@ jobs:
 
       - name: Filter channels and generate new file
         run: |
-          if [ ! -f "output/userresult.txt" ]; then
-            echo "错误：源文件 output/userresult.txt 不存在"
-            exit 1
-          fi
-
-          mkdir -p output
-          echo "开始处理频道文件..."
-          sed -n '/环球频道,#genre#/,/^[^#]*#genre#/p' output/userresult.txt > output/temp_filtered.txt
-          sed '/环球频道,#genre#/,/^[^#]*#genre#/d' output/userresult.txt > output/temp_other.txt
+          echo "原始文件行数: $(wc -l < output/userresult.txt)"
+        
+          awk '
+          /环球频道,#genre#/ { found=1 }
+          found && /#genre#/ && !first_genre { first_genre=1; next }
+          found { print }
+          /#genre#/ && found { exit }
+          ' output/userresult.txt > output/temp_filtered.txt
+        
+          sed '/环球频道,#genre#/,/#genre#/d' output/userresult.txt > output/temp_other.txt
           cat output/temp_other.txt output/temp_filtered.txt > output/abc.txt
           rm -f output/temp_filtered.txt output/temp_other.txt
-        
+          
           echo "处理完成！"
-          echo "原始文件行数:$(wc -l < output/userresult.txt)"
-          echo "新文件行数:$(wc -l < output/abc.txt)"
-          echo "生成的文件:output/abc.txt"
+          echo "新文件行数: $(wc -l < output/abc.txt)"
 
       - name: Prepare files for Gitee
         run: |
-          # 直接使用本地生成的abc.txt文件
           cp output/abc.txt IPV4.txt
           echo "文件准备完成，IPV4.txt已生成"
 
