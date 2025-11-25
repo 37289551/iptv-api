@@ -16,7 +16,6 @@ jobs:
 
       - name: Filter channels and generate new file
         run: |
-          > abc.txt
           sed -n '/环球频道,#genre#/,/^[^#]*#genre#/{
             /环球频道,#genre#/p
             /^[^#]*#genre#/!d
