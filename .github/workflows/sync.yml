@@ -14,24 +14,22 @@ jobs:
         with:
           ref: master
 
-      - name: Filter channels and generate new file
+      - name: Delete target channels
         run: |
-          echo "原始文件行数: $(wc -l < output/userresult.txt)"
-        
-          awk '
-          /环球频道,#genre#/ { found=1 }
-          found && /#genre#/ && !first_genre { first_genre=1; next }
-          found { print }
-          /#genre#/ && found { exit }
-          ' output/userresult.txt > output/temp_filtered.txt
-        
-          sed '/环球频道,#genre#/,/#genre#/d' output/userresult.txt > output/temp_other.txt
-          cat output/temp_other.txt output/temp_filtered.txt > output/abc.txt
-          rm -f output/temp_filtered.txt output/temp_other.txt
-          
-          echo "处理完成！"
-          echo "新文件行数: $(wc -l < output/abc.txt)"
+          if [ ! -f "output/userresult.txt" ]; then
+            echo "错误：源文件 output/userresult.txt 不存在"
+            exit 1
+          fi
 
+          echo "开始删除目标频道内容..."
+          echo "原始文件行数: $(wc -l < output/userresult.txt)"
+
+          sed '/环球频道,#genre#/,/#genre#/{/#genre#/!d;}' output/userresult.txt > output/abc.txt
+          
+          echo "删除完成！"
+          echo "新文件行数: $(wc -l < output/abc.txt)"
+          echo "生成的文件: output/abc.txt"
+          
       - name: Prepare files for Gitee
         run: |
           cp output/abc.txt IPV4.txt
