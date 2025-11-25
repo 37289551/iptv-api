@@ -14,31 +14,21 @@ jobs:
         with:
           ref: master
 
-      - name: Filter channels and create new file
+      - name: Filter channels and generate new file
         run: |
-         for file in output/*; do
-            if [ -f "$file" ] && grep -q "环球频道,#genre#" "$file"; then
-               echo "Processing file: $file"
-            awk '
-            /环球频道,#genre#/ { 
-              print
-              skip_section = 1
-              next
-            }
-            skip_section && /^[[:space:]]*$/ { 
-              skip_section = 0
-              print
-              next
-            }
-            skip_section && /^[^#]/ && /,#genre#/ {
-              next
-            }
-            { print }
-            ' "$file" > "output/abc.txt"
-            echo "Filtered file created: output/abc.txt"
-            break
-          fi
-         done
+          sed -n '/环球频道,#genre#/,/^[^#]*#genre#/{
+            /环球频道,#genre#/p
+            /^[^#]*#genre#/!d
+          }' output/userresult.txt | sed '/环球频道,#genre#/d' > output/temp_filtered.txt
+        
+          sed '/环球频道,#genre#/,/^[^#]*#genre#/d' output/userresult.txt > output/temp_other.txt
+          cat output/temp_other.txt output/temp_filtered.txt > output/abc.txt
+        
+          rm output/temp_filtered.txt output/temp_other.txt
+        
+          echo "Filtered file generated: output/abc.txt"
+          echo "Original file line count: $(wc -l < output/userresult.txt)"
+          echo "New file line count: $(wc -l < output/abc.txt)"
         
       - name: Commit and push if changes
         run: |
