@@ -41,7 +41,7 @@ jobs:
        
       - name: Download files
         run: |
-          curl -o IPV4.txt "https://raw.github.com/${{ github.repository }}/master/output/abc.txt"
+          curl -s -o IPV4.txt "https://raw.github.com/${{ github.repository }}/master/output/abc.txt"
           # curl -o IPV6.txt "https://raw.github.com/${{ github.repository }}/master/output/ipv6/result.txt"
           # curl -o IPV4.m3u "https://raw.github.com/${{ github.repository }}/master/output/userresult.m3u"
 
@@ -65,4 +65,4 @@ jobs:
           git add IPV4.txt 
           # add to above line IPV6.txt IPV4.m3u
           git commit -m "Sync from GitHub" --allow-empty
-          git push origin master
+          git push origin master --force
