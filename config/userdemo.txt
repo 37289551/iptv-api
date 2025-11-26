@@ -81,6 +81,8 @@ CNA,https://d2e1asnsl7br7b.cloudfront.net/7782e205e72f43aeb4a48ec97f66ebbe/index
 新片放映
 CHC影院
 南方影视
+峨眉电影4K
+求索纪录
 
 地方频道,#genre#
 江苏新闻,http://jinhu-tv-hls.cm.jstv.com/jinhu-tv/jinhuzh.m3u8?zjiangsd$!
@@ -115,3 +117,13 @@ DJ音乐3,https://vd3.bdstatic.com/mda-ndd9pwn5djrh80tn/480p/h264_delogo/1649919
 哈哈炫动
 卡酷少儿
 嘉佳卡通
+动漫秀场
+黑莓动画
+浙江少儿
+广东少儿
+河北少儿
+福建少儿
+海南少儿
+宁夏少儿
+甘肃少儿
+
