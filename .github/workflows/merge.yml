@@ -22,20 +22,20 @@ jobs:
     - name: Create directory structure
       run: |
         mkdir -p output
-        echo "目录结构创建完成"
+        echo "make directory done"
         
     - name: Download remote channel list
       run: |
         curl -s -o remote.txt https://raw.githubusercontent.com/jerome158/CHN/refs/heads/main/YD.txt
-        echo "远程频道列表下载完成"
+        echo "remote file downloaded"
         
     - name: Initialize local file
       run: |
         if [ ! -f output/userresult.txt ]; then
           touch output/userresult.txt
-          echo "创建新的本地频道文件"
+          echo "create local file"
         else
-          echo "使用现有本地频道文件"
+          echo "use existing locat file"
         fi
         
     - name: Check first line match
@@ -44,13 +44,13 @@ jobs:
           remote_first_line=$(head -n 1 remote.txt)
           
           if [ "$local_first_line" = "$remote_first_line" ]; then
-              echo "第一行内容相同，停止工作流执行"
+              echo "detected exist, exit"
               exit 0
           else
               cat remote.txt output/userresult.txt > temp_merged.txt
               mv temp_merged.txt output/userresult.txt
-              echo "合并完成：远程内容已添加到文件开头"
-              echo "最终文件行数：$(wc -l < output/userresult.txt)"
+              echo "merged to target"
+              echo "new lines：$(wc -l < output/userresult.txt)"
           fi
           
     - name: Commit and push changes
@@ -59,9 +59,9 @@ jobs:
         git config --local user.name "github-actions[bot]"
         git add output/userresult.txt
         if git diff --staged --quiet; then
-          echo "没有变化需要提交"
+          echo "no change"
         else
-          git commit -m "Auto-update: 安全合并频道列表 $(date +'%Y-%m-%d %H:%M:%S')"
+          git commit -m "Auto-update: updated $(date +'%Y-%m-%d %H:%M:%S')"
           git push
         fi
         
@@ -71,9 +71,9 @@ jobs:
           -H "Accept: application/vnd.github.v3+json" \
           -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
           https://api.github.com/repos/${{ github.repository }}/actions/workflows/sync.yml/dispatches \
-          -d '{"ref":"master"}' || echo "如果trackit工作流不存在，此步骤会失败，但不会影响主流程"
+          -d '{"ref":"master"}' || echo "called to sync but if fail no impact"
         
     - name: Display completion message
       run: |
-        echo "频道列表合并工作流执行完成"
-        echo "已触发trackit工作流"
+        echo "merge task done"
+        echo "called to sync flow"
