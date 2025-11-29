@@ -81,8 +81,8 @@ CCTV-15,http://112.27.235.94:8000/hls/16/index.m3u8
 CCTV-17,https://migu.188766.xyz/?migutoken=3a670613c9918eb0bee30292138ebd5c&id=CCTV17&type=yy
 CCTV-17,http://ygbh.site/php/bfgd.php?id=204
 CCTV-17,https://live.chinacert.cftest5.cn/mg/?id=673168256
-CCTV-4K,http://www.tszhgjj.cn:7000/rtp/239.253.93.134:6631
 CCTV-4K,http://vip1.xinketongxun.fun:8082/tsfile/live/1026_1.m3u8
+CCTV-4K,http://www.tszhgjj.cn:7000/rtp/239.253.93.134:6631
 CETV-1,https://migu.188766.xyz/?migutoken=34216e5b0384b23881ce6e6fe30b7318&id=CETV1&type=yy
 CETV-2,https://migu.188766.xyz/?migutoken=cb75d81d63725f7600a05eea2001104c&id=CETV2&type=yy
 CGTN,https://live.chinacert.cftest5.cn/mg/?id=609017205
