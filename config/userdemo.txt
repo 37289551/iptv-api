@@ -76,6 +76,7 @@ TVB
 时尚,http://lb.streaming.sk/fashiontv/stream/chunklist_w765383554.m3u8$!
 
 影院测试,#genre#
+第一剧场
 经典影片
 香港电影
 抗战影片
