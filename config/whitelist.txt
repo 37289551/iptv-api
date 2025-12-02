@@ -4,7 +4,7 @@
 # Filling in the channel name will directly retain the record to the final result, such as: CCTV-1,url, only fill in the interface address will be effective for all channels, multiple records newline input.
 https://migu.188766.xyz
 pull-skycorp.speedws.com
-http://106.53.99.30
+&q=gq
 iptv.huuc.edu.cn
 mgev.188766.xyz
 msj.188766.xyz
