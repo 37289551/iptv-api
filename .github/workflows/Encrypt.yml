@@ -1,0 +1,64 @@
+
+name: Encrypt
+
+on:
+  schedule:
+    - cron: '0 2 * * *'  # 每天UTC时间2点自动运行
+  workflow_dispatch:    # 支持手动触发
+  push:
+    paths:
+      - 'output/userresult.txt'  # 当源文件变更时触发
+
+jobs:
+  encrypt-file:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: XOR encryption
+        run: |
+          python << 'EOF'
+          import os
+          KEY = "geaihua1980"
+    
+          # 读取源文件
+          input_path = "output/userresult.txt"
+          output_path = "output/chanels.txt"
+          
+          if not os.path.exists(input_path):
+              print(f"Source file {input_path} not found")
+              exit(1)
+          
+          with open(input_path, 'r', encoding='utf-8') as f:
+              plaintext = f.read()
+          
+          # XOR加密
+          encrypted_chars = []
+          key_bytes = KEY.encode('utf-8')
+          for i, char in enumerate(plaintext):
+              encrypted_char = chr(ord(char) ^ key_bytes[i % len(key_bytes)])
+              encrypted_chars.append(encrypted_char)
+          
+          encrypted_text = ''.join(encrypted_chars)
+          
+          # 保存加密文件
+          with open(output_path, 'w', encoding='utf-8') as f:
+              f.write(encrypted_text)
+          
+          print(f"File encrypted: {input_path} -> {output_path}")
+          print(f"Encrypted file size: {os.path.getsize(output_path)} bytes")
+          EOF
+
+      - name: Commit encrypted file
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Actions"
+          git add output/chanels.txt
+          git commit -m "Auto-encrypt user result file [skip ci]" || exit 0
+          git push
