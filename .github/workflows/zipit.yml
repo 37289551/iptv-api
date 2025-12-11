@@ -23,13 +23,11 @@ jobs:
         run: |
           if [ ! -f "output/userresult.txt" ]; then
             echo "Warning: userresult.txt not found, creating sample file"
-            Generated at: $(date)" > output/userresult.txt
           fi
           
       - name: Convert userresult.txt to chanels.gz
         run: |
           echo "Converting userresult.txt to chanels.gz format"
-          # 直接将文件内容压缩为gz格式，不保留原文件名信息
           cat output/userresult.txt | gzip > output/chanels.gz
           echo "Conversion completed successfully"
           
