@@ -19,8 +19,13 @@ jobs:
       - name: Compress userresult.txt to chanels.gz
         run: |
           if [ -f "output/userresult.txt" ]; then
+            echo "Compressing userresult.txt to chanels.gz"
             gzip -c output/userresult.txt > output/chanels.gz
-            echo "Compression completed"
+            echo "Compression completed successfully"
+            ls -la output/
+          else
+            echo "Error: userresult.txt not found in output directory"
+            exit 1
           fi
           
       - name: Upload compressed file as artifact
@@ -28,3 +33,4 @@ jobs:
         with:
           name: compressed-result
           path: output/chanels.gz
+          if-no-files-found: warn
