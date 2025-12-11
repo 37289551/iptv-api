@@ -3,8 +3,6 @@ name: Compress
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
   workflow_dispatch:
 
 jobs:
@@ -13,37 +11,20 @@ jobs:
     
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         
-      - name: Check if output directory exists
-        run: |
-          if [ ! -d "output" ]; then
-            echo "Creating output directory"
-            mkdir -p output
-          fi
-          
-      - name: Create sample userresult.txt if not exists
-        run: |
-          if [ ! -f "output/userresult.txt" ]; then
-            echo "Creating sample userresult.txt file"
-            echo "This is a sample user result content for compression test." > output/userresult.txt
-          fi
-          
+      - name: Create output directory if not exists
+        run: mkdir -p output
+        
       - name: Compress userresult.txt to chanels.gz
         run: |
           if [ -f "output/userresult.txt" ]; then
-            echo "Compressing userresult.txt to chanels.gz"
             gzip -c output/userresult.txt > output/chanels.gz
-            echo "Compression completed successfully"
-            ls -la output/
-          else
-            echo "Error: userresult.txt not found in output directory"
-            exit 1
+            echo "Compression completed"
           fi
           
       - name: Upload compressed file as artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: compressed-result
           path: output/chanels.gz
-          if-no-files-found: warn
