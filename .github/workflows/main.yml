@@ -66,5 +66,5 @@ jobs:
           curl -X POST \
           -H "Accept: application/vnd.github.v3+json" \
           -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-          https://api.github.com/repos/${{ github.repository }}/actions/workflows/sync.yml/dispatches \
-          -d '{"ref":"master"}' || echo "如果trackit工作流不存在，此步骤会失败，但不会影响主流程"
+          https://api.github.com/repos/${{ github.repository }}/actions/workflows/zipit.yml/dispatches \
+          -d '{"ref":"master"}' || echo "如果工作流不存在，此步骤会失败，但不会影响主流程"
