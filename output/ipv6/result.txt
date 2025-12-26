@@ -121,18 +121,18 @@ TVB,https://mgev.188766.xyz/?migutoken=bcbc2590239c1108da50efef5f526765&id=hk_yz
 香港电影,https://migu.188766.xyz/?migutoken=65a5684840dcb6a3d35cb559bbda6ccb&id=%E7%BB%8F%E5%85%B8%E9%A6%99%E6%B8%AF%E7%94%B5%E5%BD%B1&type=yy
 抗战影片,https://migu.188766.xyz/?migutoken=06d36cb9717c080f9bcd13a5c0a6527d&id=%E6%8A%97%E6%88%98%E7%BB%8F%E5%85%B8%E5%BD%B1%E7%89%87&type=yy
 新片放映,https://migu.188766.xyz/?migutoken=829ed35a80aa594854f98d9dac91f792&id=%E6%96%B0%E7%89%87%E6%94%BE%E6%98%A0%E5%8E%85&type=yy
-新片放映,https://msj.188766.xyz/play?id=3000000010000015686&token=a7adc2f1a7adc2f1a7adc2f1a7adc2f1&client=ys
+新片放映,https://msj.188766.xyz/play?id=3000000010000015686&token=02b0a8b402b0a8b402b0a8b402b0a8b4&client=ys
 CHC影院,https://migu.188766.xyz/?migutoken=6cace7ff6b3275a82113066fafe3c1b1&id=CHC%E5%AE%B6%E5%BA%AD%E5%BD%B1%E9%99%A2&type=yy
 CHC影院,https://migu.188766.xyz/?migutoken=b6a00d6356d42e25875bed1f8c4277e0&id=CHC%E5%8A%A8%E4%BD%9C%E7%94%B5%E5%BD%B1&type=yy
 CHC影院,https://migu.188766.xyz/?migutoken=ffdc48e392a796351829aa113b6ca34f&id=CHC%E5%BD%B1%E8%BF%B7%E7%94%B5%E5%BD%B1&type=yy
 南方影视,https://hk.188766.xyz/?migutoken=5236ee6b6660971c24fab33740d5600e&id=gd_gdys&type=sz
-南方影视,https://msj.188766.xyz/play?id=3000000010000005180&token=a79f98a5a79f98a5a79f98a5a79f98a5&client=ys
+南方影视,https://msj.188766.xyz/play?id=3000000010000005180&token=02a27e6802a27e6802a27e6802a27e68&client=ys
 五星体育,https://migu.188766.xyz/?migutoken=3298f4dc85da90b5820543c9df5d8cb9&id=%E4%BA%94%E6%98%9F%E4%BD%93%E8%82%B2&pp=1
 五星体育,https://migu.188766.xyz/?migutoken=60b55f29e9779ae33142f55a7cb24fd6&id=%E4%BD%93%E5%9D%9B%E5%90%8D%E6%A0%8F%E6%B1%87&type=yy
 五星体育,https://migu.188766.xyz/?migutoken=7ac38d6aa6c67680940905617026892e&id=hk_gdty&type=dy
 五星体育,https://hk.188766.xyz/?migutoken=e2ae66e0181b2f3cae295bad8f65ac5a&id=gd_gdty&type=sz
-五星体育,https://msj.188766.xyz/play?id=3000000020000011528&token=3c909fbd3c909fbd3c909fbd3c909fbd&client=ys
-五星体育,https://msj.188766.xyz/play?id=3000000020000011529&token=3c909fbe3c909fbe3c909fbe3c909fbe&client=ys
+五星体育,https://msj.188766.xyz/play?id=3000000020000011528&token=97938580979385809793858097938580&client=ys
+五星体育,https://msj.188766.xyz/play?id=3000000020000011529&token=97938581979385819793858197938581&client=ys
 
 地方频道,#genre#
 江苏新闻,http://jinhu-tv-hls.cm.jstv.com/jinhu-tv/jinhuzh.m3u8?zjiangsd
